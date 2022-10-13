@@ -2,16 +2,16 @@
 
 ## 1. Design and create the Table
 
-> As a food lover,
-> So I can stay organised and decide what to cook,
+> As a food lover,  
+> So I can stay organised and decide what to cook,  
 > I'd like to keep a list of all my recipes with their names.
 >
-> As a food lover,
-> So I can stay organised and decide what to cook,
+> As a food lover,  
+> So I can stay organised and decide what to cook,  
 > I'd like to keep the average cooking time (in minutes) for each recipe.
 >
-> As a food lover,
-> So I can stay organised and decide what to cook,
+> As a food lover,  
+> So I can stay organised and decide what to cook,  
 > I'd like to give a rating to each of the recipes (from 1 to 5).
 
 ```
@@ -19,6 +19,16 @@ Table: recipes
 
 Columns:
 id | name | cooking_time | rating
+```
+
+Create the table:
+```sql
+CREATE TABLE recipes (
+  id SERIAL primary key,
+  name text,
+  cooking_time int,
+  rating int
+);
 ```
 
 ## 2. Create Test SQL seeds
@@ -115,30 +125,28 @@ recipes.length # =>  4
 
 recipes.first.id # =>  1
 recipes.first.name # =>  'Corn Bread'
-recipes.first.cooking_time # =>  '1h'
+recipes.first.cooking_time # =>  '60'
 recipes.first.rating # =>  '4'
 
 recipes.last.id # =>  4
 recipes.last.name # =>  'Red Lentils Dahl'
-recipes.last.cooking_time # =>  '45m'
+recipes.last.cooking_time # =>  '45'
 recipes.last.rating # =>  '5'
 
 # Find recipe
 
 repo = RecipeRepository.new
-find_result = repo.find(1)
-recipe_1 = find_result[0]
+recipe_1 = repo.find(1)
 
 recipe_1.id # =>  1
 recipe_1.name # =>  'Corn Bread'
-recipe_1.cooking_time # =>  '1h'
+recipe_1.cooking_time # =>  '60'
 recipe_1.rating # =>  '4'
 
-find_result = repo.find(3)
-recipe_3 = find_result[0]
+recipe_3 = repo.find(3)
 
 recipe_3.id # =>  3
 recipe_3.name # =>  'Apple Pie'
-recipe_3.cooking_time # =>  '45m'
+recipe_3.cooking_time # =>  '45'
 recipe_3.rating # =>  '4'
 ```
