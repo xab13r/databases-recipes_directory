@@ -1,4 +1,4 @@
-TRUNCATE TABLE books RESTART IDENTITY;
+TRUNCATE TABLE recipes RESTART IDENTITY;
 
 -- Below this line there should only be `INSERT` statements.
 -- Replace these statements with your own seed data.
